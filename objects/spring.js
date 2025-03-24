@@ -46,7 +46,6 @@ class Spring{
       force_vector = new Vec2(0, 0);
     }
     var v_proj = Vec2.dotProduct(v_rel, force_vector);
-    console.log(force_vector);
     var force = this.stiffness * delta_length - this.damping * v_proj;
     if(this.body_1){
       this.body_1.applyForce(Vec2.multiply(force_vector, force), end_1, dt);
@@ -71,7 +70,7 @@ class Spring{
     }else{
       end_2 = this.location_2;
     }
-    canvas.strokeStyle = "black";
+    canvas.strokeStyle = "#848484";
     canvas.beginPath();
     canvas.moveTo(end_1.x, end_1.y);
     canvas.lineTo(end_2.x, end_2.y);

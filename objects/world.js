@@ -51,14 +51,17 @@ class World{
     }
   }
   draw(ctx){
-    ctx.fillStyle = "white";
-    ctx.clearRect(0, 0, 1000, 1000);
+    ctx.fillStyle = "#222222";
+    ctx.lineWidth = 3;
+    ctx.fillStyle = "#222222"
+    ctx.fillRect(0, 0, 800, 600);
     for (var i = 0; i < this.bodies.length; i++){
       this.bodies[i].draw(ctx);
     }
     for(var i = 0; i < this.springs.length; i++){
       this.springs[i].draw(ctx);
     }
+    ctx.lineWidth = 1;
     if(document.getElementById("showAABB").checked){this.collisionDetector.draw(ctx)};
   }
 }

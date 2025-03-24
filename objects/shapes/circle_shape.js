@@ -16,7 +16,7 @@ class CircleShape{
     return 0.5 * Math.PI * Math.pow(this.r, 4);
   }
   draw(canvas, translation, rotation){
-    canvas.strokeStyle = "black";
+    canvas.strokeStyle = "#848484";
     canvas.beginPath();
     canvas.arc(translation.x, translation.y, this.r, 0, 2 * Math.PI);
     canvas.stroke();

@@ -1,8 +1,11 @@
 var canvas = document.getElementById("demo");
 var ctx = canvas.getContext("2d");
 canvas.addEventListener('mousedown', GuiInterface.onClick, false);
+canvas.addEventListener('touchstart', GuiInterface.onClick, false);
 canvas.addEventListener('mousemove', GuiInterface.onMove, false);
+canvas.addEventListener('touchmove', GuiInterface.onMove, false);
 canvas.addEventListener('mouseup', GuiInterface.onUp, false);
+canvas.addEventListener('touchend', GuiInterface.onUp, false);
 var clicked = false;
 var held = false;
 var released = false;
@@ -97,7 +100,7 @@ var gui_interface = new GuiInterface(ctx, "shape_type", "size", "density", "rest
 var gui_spring;
 
 function updateAndDraw(){
-  if(clicked == true && held != true && Math.sqrt(Math.pow(mousePos.x - 125, 2) + Math.pow(mousePos.y - 200, 2)) < 15){
+  if(clicked === true && held != true){
     var new_body = gui_interface.generateBody();
     ronan_world.addBody(new_body);
     gui_spring = new Spring(new_body, mousePos, null, mousePos, new_body.mass * 10, 2 * Math.sqrt(new_body.mass * new_body.mass * 10));

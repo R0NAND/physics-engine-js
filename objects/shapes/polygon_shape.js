@@ -48,7 +48,7 @@ class PolygonShape{
     return total;
   }
   draw(canvas, translation, rotation){
-    canvas.strokeStyle = "black";
+    canvas.strokeStyle = "#848484";
     canvas.beginPath();
     var point = Vec2.add(translation, Vec2.rotate(this.vertices[0], rotation));
     canvas.moveTo(point.x, point.y);

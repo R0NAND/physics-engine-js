@@ -1,8 +1,11 @@
 var canvas = document.getElementById("demo");
 var ctx = canvas.getContext("2d");
 canvas.addEventListener('mousedown', GuiInterface.onClick, false);
+canvas.addEventListener('touchstart', GuiInterface.onClick, false);
 canvas.addEventListener('mousemove', GuiInterface.onMove, false);
+canvas.addEventListener('touchmove', GuiInterface.onMove, false);
 canvas.addEventListener('mouseup', GuiInterface.onUp, false);
+canvas.addEventListener('touchend', GuiInterface.onUp, false);
 var clicked = false;
 var held = false;
 var released = false;

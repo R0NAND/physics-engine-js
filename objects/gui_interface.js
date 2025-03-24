@@ -44,16 +44,35 @@ class GuiInterface{//kinda redundant name I know :p
     this.holding = true;
     return new_body;
   }
-
+  
+  
   static onClick(event){
-    if(Math.sqrt(Math.pow(mousePos.x - 125, 2) + Math.pow(mousePos.y - 200, 2)) < 15){
+    const x = 'touches' in event ? event.touches[0].clientX : event.clientX;
+    const y = 'touches' in event ? event.touches[0].clientY : event.clientY;
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+    const canvasDisplayWidth = canvas.offsetWidth;
+    const canvasDisplayHeight = canvas.offsetHeight;
+    const canvasPixelX = (x - canvas.offsetLeft) * (canvasWidth / canvasDisplayWidth);
+    const canvasPixelY = (y - canvas.offsetTop) * (canvasHeight / canvasDisplayHeight);
+    if(Math.sqrt(Math.pow(canvasPixelX - 125, 2) + Math.pow(canvasPixelY - 200, 2)) < 15){
+      mousePos.x = canvasPixelX;
+      mousePos.y = canvasPixelY;  
       clicked = true;
     }
   }
 
   static onMove(event){
-    mousePos.x = event.clientX - canvas.offsetLeft;
-    mousePos.y = event.clientY - canvas.offsetTop;;
+    const x = 'touches' in event ? event.touches[0].clientX : event.clientX;
+    const y = 'touches' in event ? event.touches[0].clientY : event.clientY;
+    const canvasWidth = canvas.width;
+    const canvasHeight = canvas.height;
+    const canvasDisplayWidth = canvas.offsetWidth;
+    const canvasDisplayHeight = canvas.offsetHeight;
+    const canvasPixelX = (x - canvas.offsetLeft) * (canvasWidth / canvasDisplayWidth);
+    const canvasPixelY = (y - canvas.offsetTop) * (canvasHeight / canvasDisplayHeight);
+    mousePos.x = canvasPixelX;
+    mousePos.y = canvasPixelY;
   }
 
   static onUp(event){

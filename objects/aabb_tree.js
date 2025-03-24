@@ -119,7 +119,8 @@ class AABBTree{
   }
 
   draw(ctx, node, color){
-    var colors = ["red", "orange", "green", "blue", "purple", "pink"] 
+    //var colors = ["red", "orange", "green", "blue", "purple", "pink"]
+    var colors = ["#36ba01", "#36ba01", "#36ba01", "#36ba01", "#36ba01", "#36ba01"] 
     ctx.strokeStyle = colors[color];
     ctx.strokeRect(node.min.x, node.min.y, node.max.x - node.min.x, node.max.y - node.min.y);
     /*if(node.parent){

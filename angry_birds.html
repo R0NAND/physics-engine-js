@@ -1,25 +1,49 @@
 <style>
+  :root {
+    background-color: #191b1c;
+    color: ghostwhite;
+    font-family: sans-serif;
+  }
+
   .content {
-    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 320px;
+    max-width: 1280px;
     margin: auto;
   }
+
+  .canvas-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  canvas {
+    width: 100%;
+    height: auto;
+    max-width: 800px;
+    aspect-ratio: 8/4;
+  }
 </style>
+
 <body>
 
-<div class="content">
-  <h1>Ronan's Physics Engine Demonstration</h1>
-  <div style="display:flex;">  
-    <div style="width:40ch;margin-right:10px;">
-      <p>I've set up a basic demolition themed demonstration for my physics engine. 
-      You can drag and throw the floating projectile below with the mouse (mobile is not supported).
-      You can also modify the projectile's parameters with the adjacent toggles. Bewarned that this 
-      physics engine is not fully stable for all scenarios, and you are very likely to encounter 
-      some weird behavior as you experiment with it.</p>
+  <div class="content">
+    <h1 style="margin-bottom: 0;">Ronan's Physics Engine Demonstration</h1>
+    <div style="max-width:50ch;">
+      <p>I've set up a basic demolition themed demonstration for my physics engine.
+        You can drag and throw the floating projectile below with the mouse (mobile is not supported).
+        You can also modify the projectile's parameters with the adjacent toggles. Please note that if you choose to
+        stress test this physics engine via excessive force and/or violence, you will make it unstable. I take no
+        responsibility for the havoc that follows!</p>
     </div>
-    <div style="margin-bottom:10px;margin-top:auto;">
+    <div>
       <input type="checkbox" id="showAABB" name="show_aabb" value="show_aabb">
       <label for="vehicle1"> Show AABB Tree</label><br>
-      <h4>Projectile Properties</h4>
+      <h4 style="margin-top:0.5em;margin-bottom:0px;">Projectile Properties</h4>
       <input type="radio" id="circle" name="shape_type" value="circle" checked>
       <label for="circle">Circle</label>
       <input type="radio" id="triangle" name="shape_type" value="triangle">
@@ -29,22 +53,18 @@
 
 
       <div class="slidecontainer">
-          <label for="size">Size: </label>
-          <input type="range" min="50" max="100" value="75" class="slider" id="size"><br>
-          <label for="density">Density: </label>
-          <input type="range" min="50" max="150" value="100" class="slider" id="density"><br>
-          <label for="restitution">Restitution: </label>
-          <input type="range" min="0" max="100" value="50" class="slider" id="restitution"><br>
-          <label for="friction">Friction: </label>
-          <input type="range" min="0" max="100" value="50" class="slider" id="friction"><br>
+        <label for="size">Size: </label>
+        <input type="range" min="50" max="100" value="75" class="slider" id="size"><br>
+        <label for="density">Density: </label>
+        <input type="range" min="50" max="150" value="100" class="slider" id="density"><br>
+        <label for="restitution">Restitution: </label>
+        <input type="range" min="0" max="100" value="50" class="slider" id="restitution"><br>
+        <label for="friction">Friction: </label>
+        <input type="range" min="0" max="100" value="50" class="slider" id="friction"><br>
       </div>
     </div>
-  </div>
-
-    <!--<input type="checkbox" id="isStatic" name="static_shape" value="Static">
-    <label for="vehicle1"> Static</label><br>-->
-    
-    <canvas id="demo" style="border-style: solid" width="800" height="400">
+    <div class="canvas-container">
+      <canvas id="demo" height="400" width="800" style="border-style: solid;">
         <script src="objects/vec_2.js"></script>
         <script src="objects/gui_interface.js"></script>
         <script src="objects/aabb.js"></script>
@@ -59,5 +79,6 @@
         <script src="objects/world.js"></script>
         <script src="objects/spring.js"></script>
         <script src="angry_birds.js"></script>
-    </canvas>
-</div>
+      </canvas>
+    </div>
+  </div>
